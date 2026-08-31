@@ -26,6 +26,7 @@ ans: what was username involved?
 
 
   3. Would you immediately call this a confirmed attack? Why?
+  
   ans: no we cannot call this an attack we need to investigate more and if necessary we need to escalate this
 
-4. Would you immediately call this a confirmed attack? Why?
+
