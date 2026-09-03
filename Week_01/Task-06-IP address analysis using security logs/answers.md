@@ -132,4 +132,127 @@ ans: 10.0.0.20 → Database server (db01)
 6. Do repeated failed logins automatically prove that an account was compromised? Explain briefly.
 
 Ans: No,Repeated failed logins indicate suspicious activity, but they do not prove that the account was compromised.
-      Analyst should cheack more additional info like source ip locations ip 
+      Analyst should check more additional info like source ip locations destination ip location involved system names and users 
+
+PART 3 — TRICKY INVESTIGATION SCENARIOS
+
+1. VPN login for Amit: successful → failed → successful from same IP. Does this automatically indicate an attack?
+
+Ans: No, it does not automatically indicate an attack.
+
+2. Admin has failed logins from external IP, then successfully logs in from a different private IP. Can we conclude external access?
+
+Ans: No, we cannot conclude that the external source successfully accessed the account.
+
+The failed attempts came from:
+
+203.0.113.50 → 10.0.0.20
+Username: admin
+5 failed attempts
+
+Later, the successful admin login came from:
+
+10.0.0.12 → 10.0.0.20
+
+These are different source IP addresses. The log does not show a successful login from 203.0.113.50.
+
+3. DNS queries to public IP addresses — automatically suspicious?
+
+Ans: No.
+
+Communication with a public/external IP address does not automatically mean malicious activity.
+
+4. User successfully accesses a file server from a private IP. What additional information is needed?
+
+ans: We would need to check:
+
+Which user accessed the file
+
+Which files/folders were accessed
+
+Whether the user was authorized to access them
+
+What action was performed — read, copied, modified, deleted, etc.
+
+Whether the activity happened during normal working hours
+
+Whether the user's device/IP is normally associated with that user
+
+Whether there were any unusual downloads or large file transfers
+
+5. Which event should be prioritized for investigation first?
+
+Ans: The repeated failed admin logins against the database server from 203.0.113.50.
+
+PART 4 — INVESTIGATION QUESTIONS
+
+1. Identify two activities that appear normal based on the available context.
+
+ans: Rahul's successful SSH login
+
+     Vikram's file access
+
+2. Identify two activities that require further investigation.
+
+ans:  Repeated failed admin logins from 203.0.113.50 to the database server.
+
+      Repeated failed root logins from 198.51.100.77 to the web server.
+
+3. What makes each activity interesting or unusual?
+
+ans: Admin login failures
+
+     Root login failures
+
+4. What additional information would you check before confirming malicious activity?
+
+ans: Source IP reputation and location
+
+     User's normal login behavior
+  
+     Device information
+
+     Login time and frequency
+
+     Whether a successful login happened after the failures
+
+ 5. Why is context more important than looking at an IP address alone?
+
+ans: Because an IP address by itself does not tell us whether an activity is normal or malicious.    
+
+
+
+
+PART 5 — SHORT ANSWERS
+
+1. What does a source IP represent?
+
+ans: dource ip represent from where it came from
+
+2. What does a destination IP represent?
+
+ans:  it represent that where is the destination address where to get delivered 
+
+3. Is 192.168.1.25 a public or private IP address?
+
+ans: private ip address
+
+4. Is 10.0.0.15 a public or private IP address?
+
+ans: public ip address
+
+5. Which field in a log helps identify when an event occurred?
+
+ans: date and time 
+
+6. Which field identifies whether an authentication attempt succeeded or failed?
+
+ans: status 
+
+7. Can an IP address alone confirm that an attack occurred?
+
+ans: no
+
+8. What is one reason repeated failed logins may require investigation?
+
+ans: 
