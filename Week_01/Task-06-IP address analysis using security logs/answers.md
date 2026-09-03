@@ -106,4 +106,30 @@ Example 2:
 
 
 
+PART 2 — PATTERN IDENTIFICATION
 
+1. Which source IP address appears repeatedly during failed login attempts against the database server?
+
+Ans: 203.0.113.50
+
+2. How many failed login attempts are shown for that activity?
+
+Ans: 5 failed login attempts
+
+3. Which username is being targeted during those attempts?
+
+Ans: admin
+
+4. Identify another source IP associated with repeated failed login attempts.
+
+Ans: 198.51.100.77
+
+5. Which destination systems are involved in the repeated failed login activity?
+
+ans: 10.0.0.20 → Database server (db01)
+     10.0.0.10 → Web server (web01)
+
+6. Do repeated failed logins automatically prove that an account was compromised? Explain briefly.
+
+Ans: No,Repeated failed logins indicate suspicious activity, but they do not prove that the account was compromised.
+      Analyst should cheack more additional info like source ip locations ip 
