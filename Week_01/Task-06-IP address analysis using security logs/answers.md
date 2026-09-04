@@ -255,4 +255,16 @@ ans: no
 
 8. What is one reason repeated failed logins may require investigation?
 
-ans: 
+ans: They may indicate a password-guessing or unauthorized access attempt.
+
+
+
+
+
+PART 6 — INVESTIGATION SUMMARY
+
+ANS :  The main suspicious pattern identified is repeated failed login attempts against privileged accounts. The most notable activity           is 5 failed login attempts for the admin account from source IP 203.0.113.50 targeting the database server db01 (10.0.0.20).              Another suspicious pattern is 3 failed root login attempts from 198.51.100.77 targeting the web server web01 (10.0.0.10).
+
+      These activities should be investigated because repeated failed attempts against privileged accounts could indicate password              guessing or unauthorized access attempts. Next, I would check the source IP information, user login history, timestamps, device           details, authentication logs, whether any successful login occurred after the failures, and whether the activity was expected.
+
+      Based only on the available logs, I cannot confirm that an attack occurred. The logs show suspicious activity, but more context           and evidence are required before confirming malicious activity. 
